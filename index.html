@@ -1,0 +1,348 @@
+<style>
+@import url('https://fonts.googleapis.com/css?family=Poppins:200i,400&display=swap');
+    
+:root {
+  --color-white: #f3f3f3;
+  --color-darkblue: #1b1b32;
+  --color-darkblue-alpha: rgba(27, 27, 50, 0.8);
+  --color-green: #37af65;
+}
+    
+body {
+  font-family: 'Poppins', sans-serif;
+  font-size: 1rem;
+  font-weight: 400;
+  line-height: 1.4;
+  color: var(--color-white);
+  margin: 0;
+}
+
+/* mobile friendly alternative to using background-attachment: fixed */
+body::before {
+  content: '';
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  z-index: -1;
+  background: var(--color-darkblue);
+  background-image: linear-gradient(
+      115deg,
+      rgba(58, 58, 158, 0.8),
+      rgba(136, 136, 206, 0.7)
+    ),
+    url(https://lh4.googleusercontent.com/-KrGke0PAUMc/VC2C3-0X7BI/AAAAAAAAGbk/81KRBuTsTnY/s480/dia-nacional-de-las-pupusas.jpg);
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+h1 {
+  font-weight: 400;
+  line-height: 1.2;
+}
+
+p {
+  font-size: 1.125rem;
+}
+
+h1,
+p {
+  margin-top: 0;
+  margin-bottom: 0.5rem;
+}
+
+label {
+  display: flex;
+  align-items: center;
+  font-size: 1.125rem;
+  margin-bottom: 0.5rem;
+}
+
+input,
+button,
+select,
+textarea {
+  margin: 0;
+  font-family: inherit;
+  font-size: inherit;
+  line-height: inherit;
+}
+
+button {
+  border: none;
+}
+
+.container {
+  width: 100%;
+  margin: 3.125rem auto 0 auto;
+}
+
+@media (min-width: 576px) {
+  .container {
+    max-width: 540px;
+  }
+}
+
+@media (min-width: 768px) {
+  .container {
+    max-width: 720px;
+  }
+}
+
+.header {
+  padding: 0 0.625rem;
+  margin-bottom: 1.875rem;
+}
+
+.description {
+  font-style: italic;
+  font-weight: 200;
+  text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.4);
+}
+
+.clue {
+  margin-left: 0.25rem;
+  font-size: 0.9rem;
+  color: #e4e4e4;
+}
+
+.text-center {
+  text-align: center;
+}
+
+    
+    .input-radio,
+.input-checkbox {
+  display: inline-block;
+  margin-right: 0.625rem;
+  min-height: 1.25rem;
+  min-width: 1.25rem;
+}
+
+.input-textarea {
+  min-height: 120px;
+  width: 100%;
+  padding: 0.625rem;
+  resize: vertical;
+}
+
+.submit-button {
+  display: block;
+  width: 100%;
+  padding: 0.75rem;
+  background: var(--color-green);
+  color: inherit;
+  border-radius: 2px;
+  cursor: pointer;
+}
+
+</style>
+ 
+
+ 
+ 
+ <div class="container">
+  
+   <header class="header">
+    <h1 id="title" class="text-center">Le gustan las "pupusas" ?</h1>
+    <p id="description" class="description text-center">
+      Agradecemos tomar esta encuesta sobre su gusto de las pupusas
+    </p>
+  </header>
+  
+   <form id="survey-form">
+    <div class="form-group">
+      <label id="name-label" for="name">Nombre</label>
+      <input
+        type="text"
+        name="name"
+        id="name"
+        class="form-control"
+        placeholder="Escriba su nombre"
+        required
+      />
+    </div>
+    <div class="form-group">
+      <label id="email-label" for="email">Email</label>
+      <input
+        type="email"
+        name="email"
+        id="email"
+        class="form-control"
+        placeholder="Escriba su Email"
+        required
+      />
+    </div>
+    <div class="form-group">
+      <label id="number-label" for="number"
+        >Edad<span class="clue">(opcional)</span></label
+      >
+      <input
+        type="number"
+        name="age"
+        id="number"
+        min="20"
+        max="99"
+        class="form-control"
+        placeholder="Edad"
+      />
+    </div>
+    <div class="form-group">
+      <p>Cuál comida típica salvadoreña es su preferida?</p>
+      <select id="dropdown" name="role" class="form-control" required>
+        <option disabled selected value>Selecione su preferencia</option>
+        <option value="pupusas">Pupusas</option>
+        <option value="tamales">Tamales</option>
+        <option value="chilate">Chilate</option>
+        <option value="yuca">Yuca con chicharrón</option>
+        <option value="otra">Otra</option>
+      </select>
+    </div>
+
+    <div class="form-group">
+      <p>Recomendaría las Pupusas como mejor comida típica salvadoreña ?</p>
+      <label>
+        <input
+          name="recomendacion"
+          value="totalmente"
+          type="radio"
+          class="input-radio"
+          checked
+        />Totalmente</label
+      >
+      <label>
+        <input
+          name="recomendacion"
+          value="talvez"
+          type="radio"
+          class="input-radio"
+        />Tal vez</label
+      >
+
+      <label
+        ><input
+          name="recomendacion"
+          value="noseguro"
+          type="radio"
+          class="input-radio"
+        />No estoy seguro</label
+      >
+    </div>
+
+    
+
+    <div class="form-group">
+      <p>
+        Qué especialidad de pupusas prefiere ?
+        <span class="clue">(Puede elegir varias opciones)</span>
+      </p>
+
+      <label
+        ><input
+          name="preferencia"
+          value="queso"
+          type="checkbox"
+          class="input-checkbox"
+        />Queso</label
+      >
+      <label>
+        <input
+          name="preferencia"
+          value="chicharron"
+          type="checkbox"
+          class="input-checkbox"
+        />Chicharrón</label
+      >
+      <label
+        ><input
+          name="preferencia"
+          value="revueltas"
+          type="checkbox"
+          class="input-checkbox"
+        />Revueltas</label
+      >
+      <label
+        ><input
+          name="preferencia"
+          value="frijolqueso"
+          type="checkbox"
+          class="input-checkbox"
+        />Frijol con queso</label
+      >
+      <label
+        ><input
+          name="prefer"
+          value="jalapeño"
+          type="checkbox"
+          class="input-checkbox"
+        />Jalapeño</label
+      >
+      <label
+        ><input
+          name="preferencia"
+          value="zanahoriaqueso"
+          type="checkbox"
+          class="input-checkbox"
+        />Zanahoria con queso</label
+      >
+      <label
+        ><input
+          name="preferencia"
+          value="ayote"
+          type="checkbox"
+          class="input-checkbox"
+        />Ayote</label
+      >
+      <label
+        ><input
+          name="preferencia"
+          value="pollo"
+          type="checkbox"
+          class="input-checkbox"
+        />Pollo</label
+      >
+      <label
+        ><input
+          name="preferencia"
+          value="camarón"
+          type="checkbox"
+          class="input-checkbox"
+        />Camarón</label
+      >
+      <label
+        ><input
+          name="preferencia"
+          value="pescado"
+          type="checkbox"
+          class="input-checkbox"
+        />Pescado</label
+      >
+      <label
+        ><input
+          name="preferencia"
+          value="loroco"
+          type="checkbox"
+          class="input-checkbox"
+        />Queso con loroco</label
+      >
+    </div>
+
+    <div class="form-group">
+      <p>Algún comentario personal sobre las pupusas ?</p>
+      <textarea
+        id="comments"
+        class="input-textarea"
+        name="comment"
+        placeholder="Escriba su comentario aqui..."
+      ></textarea>
+    </div>
+
+    <div class="form-group">
+      <button type="submit" id="submit" class="submit-button">
+        Enviar
+      </button>
+    </div>
+  </form>
+</div>
